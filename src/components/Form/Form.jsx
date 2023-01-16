@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
-import { addContacts, getContacts} from 'redux/contactsSlice';
+import { addContacts, getContacts } from 'redux/contactsSlice';
 import css from './Form.module.css';
 import PropTypes from 'prop-types';
 
@@ -11,12 +11,12 @@ export function Form() {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
   const nameContact = contacts.map(value => value.name);
-  
+
   const hendleSubmit = e => {
     e.preventDefault();
 
-    if(nameContact.includes(name)){
-      return alert(`${name} is already in contacts`)
+    if (nameContact.includes(name)) {
+      return alert(`${name} is already in contacts`);
     }
 
     dispatch(addContacts(name, number));
@@ -79,5 +79,3 @@ export function Form() {
 Form.propTypes = {
   onSubmit: PropTypes.func.isRequired,
 };
-
-
