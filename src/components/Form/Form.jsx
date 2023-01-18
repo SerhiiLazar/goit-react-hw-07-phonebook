@@ -1,16 +1,17 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
-import { addContacts, getContacts } from 'redux/contactsSlice';
+import { addContact } from 'redux/operations';
+import { selectContacts } from 'redux/selectors';
 import css from './Form.module.css';
 import PropTypes from 'prop-types';
 
 export function Form() {
   const dispatch = useDispatch();
-  const contacts = useSelector(getContacts);
+  const contacts = useSelector(selectContacts);
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
-  const nameContact = contacts.map(value => value.name);
+  const nameContact = contacts.map(items => items.name);
 
   const hendleSubmit = e => {
     e.preventDefault();
@@ -19,7 +20,7 @@ export function Form() {
       return alert(`${name} is already in contacts`);
     }
 
-    dispatch(addContacts(name, number));
+    dispatch(addContact(name, number));
 
     setName('');
     setNumber('');
