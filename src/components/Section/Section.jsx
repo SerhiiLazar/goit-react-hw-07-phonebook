@@ -13,7 +13,7 @@ const Section = ({ children, title }) => {
           alignItems: 'center',
           padding: '40px',
           borderRadius: '10px',
-          backgroundColor: 'rgb(126, 250, 209)',
+          background: 'linear-gradient(90deg, rgba(101,51,73,1) 0%, rgba(0,7,15,0.3029586834733894) 100%)',
           boxShadow: '4px 4px 10px rgba(0, 0, 0, 0.6)',
         }}
       >

@@ -4,14 +4,14 @@ import { useSelector } from 'react-redux';
 import { addContact } from 'redux/operations';
 import { selectContacts } from 'redux/selectors';
 import css from './Form.module.css';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 export function Form() {
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
   const [name, setName] = useState('');
-  const [number, setNumber] = useState('');
-  const nameContact = contacts.map(items => items.name);
+  const [phone, setPnohe] = useState('');
+  const nameContact = contacts.map(contact => contact.name);
 
   const hendleSubmit = e => {
     e.preventDefault();
@@ -20,10 +20,12 @@ export function Form() {
       return alert(`${name} is already in contacts`);
     }
 
-    dispatch(addContact(name, number));
+    dispatch(addContact({name, phone}));
 
     setName('');
-    setNumber('');
+    setPnohe('');
+
+    console.log(e.target.value)
   };
 
   const handleChenge = e => {
@@ -33,7 +35,7 @@ export function Form() {
         setName(value);
         break;
       case 'number':
-        setNumber(value);
+        setPnohe(value);
         break;
       default:
         break;
@@ -63,7 +65,7 @@ export function Form() {
           type="tel"
           name="number"
           onChange={handleChenge}
-          value={number}
+          value={phone}
           autoCapitalize="off"
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
@@ -77,6 +79,6 @@ export function Form() {
   );
 }
 
-Form.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
-};
+// Form.propTypes = {
+//   onSubmit: PropTypes.func.isRequired,
+// };

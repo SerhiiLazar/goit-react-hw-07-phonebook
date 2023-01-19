@@ -1,21 +1,35 @@
 .contactsItem {
     list-style: none;
-
-}
+    padding: 0;
+}   
 .contactsList {
     font-size: 24px;
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 2fr 2fr 80px;
+    grid-auto-rows: 100px;
+    grid-column-gap: 10px;
     align-items: center;
-    padding: 0 20px 20px 0;
-}
-.contactsName {
-    margin-right: 20px;
-}
-.contactsNumber {
-    margin-right: 20px;
+    border: 0.5px solid rgb(102, 102, 102);
+    padding: 10px;
+   
 }
 
+.contactsName {
+   font-weight: 400;
+
+}
+
+.contactParagraph {
+    display: grid;
+    margin-right: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    display: flex;
+    grid-column-gap: 10px;
+    padding: 5px;
+    border: 0.5px solid rgb(102, 102, 102);
+    background: rgb(237,220,228);
+}
 .contactsBtn {
     
     margin: 20px 0 20px 0;

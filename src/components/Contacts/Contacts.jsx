@@ -11,18 +11,18 @@ export const Contacts = () => {
   const contacts = useSelector(selectContacts);
 
   const contactFinde = contacts.length;
-  const contactList = useSelector(selectVisibleContacts);
-  console.log(contactList)
+  const contactAll = useSelector(selectVisibleContacts);
+  
   return (
     <div>
       {!contactFinde ? (
         <Notification message="Contact list is empty !" />
       ) : (
         <ul className={css.contactsItem}>
-          {contactList.map(({ id, name, number }) => (
+          {contactAll.map(({ name, phone, id }) => (
             <li key={id} className={css.contactsList}>
-              <span className={css.contactsName}>Name: {name}</span>
-              <span className={css.contactsNumber}>Tel: {number}</span>
+              <p className={css.contactParagraph}>Name:<span className={css.contactsName}>{name}</span></p>
+              <p className={css.contactParagraph}>Tel:<span className={css.contactsName}> {phone}</span></p>
               <button
                 className={css.contactsBtn}
                 type="button"
